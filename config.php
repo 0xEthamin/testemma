@@ -1,8 +1,8 @@
 <?php
-$host = 'localhost';
-$dbname = 'web_mimba';
-$user = 'root'; // ou ton utilisateur MySQL
-$pass = '';     // souvent vide en local
+$host = 'herogu.garageisep.com';
+$dbname = 'LL1QfAKjD6_etulogis';
+$user = 'cMHmeHfrqf_etulogis'; // ou ton utilisateur MySQL
+$pass = 'JRDCBchpXzuMFBc2';     // souvent vide en local
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
