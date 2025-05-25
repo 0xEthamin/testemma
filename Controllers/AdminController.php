@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-// Chargement des fichiers nécessaires
 require_once(__DIR__ . '/../config.php');
 require_once(__DIR__ . '/../Models/User.php');
 require_once(__DIR__ . '/../Models/Message.php');
@@ -13,7 +12,7 @@ class AdminController {
     private $pdo;
     private $userModel;
     private $logementModel;
-    private const ADMIN_ID = 12; // ✅ ID fixe de l'admin
+    private const ADMIN_ID = 12; 
 
     public function __construct(PDO $pdo) {
         $this->pdo = $pdo;

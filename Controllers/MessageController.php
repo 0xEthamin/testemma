@@ -24,7 +24,6 @@ class MessageController {
     }
 
     private function showAdminConversation() {
-        // Charger les messages avec l'admin
         $userId = $_SESSION['user']['id'];
         $stmt = $this->pdo->prepare("
             SELECT m.*, u.username as sender 
@@ -58,7 +57,6 @@ class MessageController {
     }
 
     private function showUserConversation($recipient) {
-        // Vérifier que le destinataire existe
         $stmt = $this->pdo->prepare("SELECT id FROM users WHERE (username = ? OR email = ?) AND id != ?");
         $stmt->execute([$recipient, $recipient, $_SESSION['user']['id']]);
         $recipientUser = $stmt->fetch();
@@ -69,7 +67,6 @@ class MessageController {
             exit;
         }
 
-        // Charger les messages avec cet utilisateur
         $stmt = $this->pdo->prepare("
             SELECT m.*, u.username as sender 
             FROM internal_messages m
@@ -108,7 +105,6 @@ class MessageController {
 
         try {
             if ($isAdminMessage) {
-                // Message à l'admin
                 $stmt = $this->pdo->prepare("
                     INSERT INTO internal_messages 
                     (user_id, message, sent_at, is_admin_message) 
@@ -116,7 +112,6 @@ class MessageController {
                 ");
                 $stmt->execute([$userId, $message]);
             } elseif (!empty($recipient)) {
-                // Message à un autre utilisateur
                 $stmt = $this->pdo->prepare("SELECT id FROM users WHERE (username = ? OR email = ?) AND id != ?");
                 $stmt->execute([$recipient, $recipient, $userId]);
                 $recipientUser = $stmt->fetch();

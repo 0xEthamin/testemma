@@ -1,13 +1,9 @@
-/* annonce.css */
-
-/* Structure principale */
 .annonce-container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
 }
 
-/* En-tête de l'annonce */
 .annonce-header {
     text-align: center;
     margin-bottom: 2rem;
@@ -36,7 +32,6 @@
     fill: currentColor;
 }
 
-/* Contenu principal */
 .annonce-content {
     display: grid;
     grid-template-columns: 1fr;
@@ -49,7 +44,6 @@
     }
 }
 
-/* Galerie d'images */
 .annonce-gallery {
     position: relative;
     border-radius: 12px;
@@ -69,7 +63,6 @@
     transform: scale(1.02);
 }
 
-/* Détails de l'annonce */
 .annonce-details {
     background: white;
     padding: 2rem;
@@ -102,7 +95,6 @@
     margin-bottom: 0.5rem;
 }
 
-/* Prix */
 .annonce-prices {
     background: #f5f7fa;
     padding: 1.5rem;
@@ -131,7 +123,6 @@
     font-weight: bold;
 }
 
-/* Boutons d'action */
 .annonce-actions {
     display: flex;
     gap: 1rem;
@@ -185,7 +176,6 @@
     transform: translateY(-2px);
 }
 
-/* Section cachée */
 .more-details {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -204,7 +194,6 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .annonce-title {
         font-size: 1.8rem;
@@ -224,7 +213,6 @@
     }
 }
 
-/* Icônes */
 .icon-text {
     display: flex;
     align-items: center;
@@ -238,7 +226,6 @@
     fill: #32B5A0;
 }
 
-/* Services */
 .services-list {
     display: flex;
     flex-wrap: wrap;

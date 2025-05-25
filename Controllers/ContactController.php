@@ -24,12 +24,10 @@ class ContactController {
         $email = trim($_POST['email'] ?? '');
         $message = trim($_POST['message'] ?? '');
 
-        // Validation
         if (empty($name) || empty($email) || empty($message)) {
             return ['success' => false];
         }
 
-        // Enregistrement en base de données
         try {
             $stmt = $this->pdo->prepare("INSERT INTO contact_messages (name, email, message, created_at) VALUES (?, ?, ?, NOW())");
             $stmt->execute([$name, $email, $message]);

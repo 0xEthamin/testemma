@@ -1,8 +1,7 @@
 <?php
 
 session_start();
-// Configuration base de données (instancie $pdo)
-require_once __DIR__ . '/config.php';
+require_once(__DIR__ . '/config.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -108,16 +107,14 @@ try {
             require_once __DIR__ . '/Controllers/ProfilController.php';
             $controller = new ProfilController($pdo);
     
-            // Récupération de l'action avec une valeur par défaut
             $action = $_GET['action'] ?? 'show';
     
-            // Gestion des différentes actions
             switch ($action) {
                 case 'update':
                     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $controller->updateProfile();
                     } else {
-                        // Si tentative d'accès GET à update, rediriger vers le profil
+
                         header("Location: /index.php?page=profil");
                         exit;
                     }
@@ -129,17 +126,14 @@ try {
                         $newPass = $_POST['new_password'] ?? '';
                         $confirmPass = $_POST['confirm_password'] ?? '';
                 
-                        // Ajoutez cette méthode dans ProfilController
                         $controller->changePassword($currentPass, $newPass, $confirmPass);
                     } else {
-                        // Afficher le formulaire de changement de mot de passe
                         $controller->showPasswordForm();
                     }
                     break;
             
                 case 'show':
                 default:
-                    // Vérification supplémentaire contre les boucles
                     if (!isset($_SESSION['user']) && $_SERVER['REQUEST_METHOD'] === 'GET') {
                         header("Location: index.php?page=connexion");
                         exit;
@@ -198,59 +192,45 @@ try {
             break;
         
         case 'messagerie':
-            // Vérifier si l'utilisateur est connecté
             if (!isset($_SESSION['user'])) {
                 header('Location: index.php?page=connexion');
                 exit;
             }
 
-            // Inclure le contrôleur de messagerie
             require_once __DIR__ . '/Controllers/MessagerieController.php';
 
-            // Vérifier si on a un type de conversation spécifié
             $type = $_GET['type'] ?? '';
             $recipient = $_GET['recipient'] ?? '';
 
             $messages = []; 
 
             if ($type === 'admin' || $type === 'user') {
-                // Appelle la fonction pour récupérer les messages depuis la BDD
-                // Par exemple, tu peux modifier MessagerieController pour recevoir ces paramètres
 
                 $messagerieController = new MessagerieController($pdo);
                 $messages = $messagerieController->getMessages($type, $recipient, $_SESSION['user']['id']);
             }
 
             if (empty($type)) {
-                // Afficher la page de choix si aucun type n'est spécifié
                 include __DIR__ . '/Views/choix_messagerie.php';
             } else {
-                // Vérifier le type de conversation
                 if ($type === 'admin') {
-                    // Conversation avec l'admin
                     include __DIR__ . '/Views/messagerie.php';
                 } elseif ($type === 'user') {
-                    // Conversation avec un autre utilisateur
                     if (empty($recipient)) {
-                        // Afficher le formulaire de recherche si aucun destinataire n'est spécifié
                         include __DIR__ . '/Views/recherche_utilisateur.php';
                     } else {
-                        // Vérifier que l'utilisateur existe
                         require_once __DIR__ . '/Models/User.php';
                         $userModel = new User($pdo);
                         $recipientUser = $userModel->getUserByIdentifier($recipient);
 
                         if ($recipientUser && $recipientUser['id'] != $_SESSION['user']['id']) {
-                            // Afficher la messagerie avec l'utilisateur
                             include __DIR__ . '/Views/messagerie.php';
                         } else {
-                            // Utilisateur non trouvé ou tentative de messagerie avec soi-même
                             $_SESSION['error'] = "Utilisateur non trouvé ou invalide";
                             include __DIR__ . '/Views/recherche_utilisateur.php';
                         }
                     }
                 } else {
-                    // Type invalide
                     header('Location: index.php?page=messagerie');
                     exit;
                 }
@@ -259,7 +239,7 @@ try {
 
         default:
             http_response_code(404);
-            echo "❌ Page non trouvée.";
+            echo "Page non trouvée.";
             break;
     }
 } catch (PDOException $e) {

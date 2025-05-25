@@ -11,7 +11,6 @@ class PasswordController {
         $this->mailService = new MailService();
     }
 
-    // Affiche le formulaire "mot de passe oublié"
     public function forgotForm() {
         $success = $_SESSION['success'] ?? '';
         $error = $_SESSION['error'] ?? '';
@@ -20,7 +19,6 @@ class PasswordController {
         include __DIR__ . '/../Views/forgot_password.php';
     }
 
-    // Traite la demande d'envoi de mail de réinitialisation
     public function sendResetLink() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = trim($_POST['email']);
@@ -28,10 +26,9 @@ class PasswordController {
 
             if ($user) {
                 $token = bin2hex(random_bytes(32));
-                $expires = date('Y-m-d H:i:s', time() + 3600); // 1 heure de validité
+                $expires = date('Y-m-d H:i:s', time() + 3600); 
 
                 if (User::setResetToken($this->pdo, $user['id'], $token, $expires)) {
-                    // Correction ici - Ajout du chemin /
                     $resetLink = "http://" . $_SERVER['HTTP_HOST'] . "/index.php?page=mot-de-passe&action=resetForm&token=$token";
 
                     try {
@@ -51,7 +48,6 @@ class PasswordController {
         }
     }
 
-    // Affiche le formulaire de réinitialisation
     public function resetForm() {
         $token = $_GET['token'] ?? '';
         $user = User::findByResetToken($this->pdo, $token);
@@ -68,7 +64,6 @@ class PasswordController {
         include __DIR__ . '/../Views/reset_password.php';
     }
 
-    // Traite la réinitialisation du mot de passe
     public function resetPassword() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $token = $_POST['token'] ?? '';

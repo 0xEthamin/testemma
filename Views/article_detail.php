@@ -1,4 +1,3 @@
-<!-- Views/article_detail.php -->
 <?php include __DIR__ . '/../header.php'; ?>
 
 <!DOCTYPE html>

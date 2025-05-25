@@ -7,13 +7,12 @@ require_once(__DIR__ . '/../config.php');
 
 header('Content-Type: application/json');
 
-// Vérification stricte de l'accès
 if (empty($_SESSION['admin'])) {
     http_response_code(403);
     exit(json_encode(['error' => 'Accès non autorisé']));
 }
 
-$adminId = 12; // ✅ ID fixe de l'admin
+$adminId = 12; 
 $userId = filter_input(INPUT_GET, 'user', FILTER_VALIDATE_INT);
 
 if ($userId === false || $userId === null) {

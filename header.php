@@ -1,15 +1,11 @@
 <?php
-// header.php
 
-// Start session if not already started
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Define base URL - consider making this a config variable
 $base_url = '';
 
-// User status check with null coalescing operator for cleaner code
 $isLoggedIn = isset($_SESSION['user']); 
 $name = $isLoggedIn ? htmlspecialchars($_SESSION['user']['name'] ?? '', ENT_QUOTES, 'UTF-8') : '';
 $isAdmin = $isLoggedIn && ($_SESSION['user']['is_admin'] ?? false);

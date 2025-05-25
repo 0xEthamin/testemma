@@ -1,4 +1,4 @@
-// === Fonction de recherche logement ===
+
 function lancerRecherche() {
   const ville = document.getElementById('ville').value.trim();
   const budget = document.getElementById('budget').value.trim();
@@ -17,7 +17,6 @@ function lancerRecherche() {
   window.location.href = url;
 }
 
-// === Fonction utilitaire : ajouter un message dans le chat ===
 function addMessage(sender, text) {
   const chatMessages = document.getElementById('chat-messages');
   if (!chatMessages) {
@@ -36,7 +35,6 @@ function addMessage(sender, text) {
   chatMessages.scrollTop = chatMessages.scrollHeight;
 }
 
-// === Actions du chatbot ===
 function handleChatAction(action) {
   const chatOptions = document.getElementById('chat-options');
   const citySelection = document.getElementById('city-selection');
@@ -94,7 +92,6 @@ function handleChatAction(action) {
   }
 }
 
-// === Gestion du toggle du chatbot ===
 window.toggleChat = function() {
   const chatbot = document.getElementById('chatbot');
   const toggleBtn = document.querySelector('.chat-toggle');
@@ -105,21 +102,17 @@ window.toggleChat = function() {
   } else {
     chatbot.classList.add('visible');
     toggleBtn.style.display = 'none';
-    // Réinitialiser le chat quand on l'ouvre
     document.getElementById('chat-options').style.display = 'flex';
     document.getElementById('city-selection').style.display = 'none';
   }
 };
 
-// === Initialisation du chatbot ===
 function initializeChatbot() {
   console.log("Initialisation du chatbot...");
 
-  // Vérification des éléments
   const buttons = document.querySelectorAll('.chat-btn');
   console.log("Nombre de boutons trouvés:", buttons.length);
 
-  // Délégation d'événements au niveau du document
   document.addEventListener('click', function(e) {
     const btn = e.target.closest('.chat-btn');
     if (btn) {
@@ -130,25 +123,20 @@ function initializeChatbot() {
     }
   });
 
-  // Initialisation des états
   document.getElementById('chat-options').style.display = 'flex';
   document.getElementById('city-selection').style.display = 'none';
 }
 
-// === Au chargement de la page ===
 document.addEventListener('DOMContentLoaded', function() {
   console.log("DOM complètement chargé");
   
-  // Initialisation du chatbot
   initializeChatbot();
 
-  // Masquer le chatbot au départ
   const chatbot = document.getElementById('chatbot');
   if (chatbot) {
     chatbot.classList.remove('visible');
   }
 
-  // Afficher le bouton de toggle
   const toggleBtn = document.querySelector('.chat-toggle');
   if (toggleBtn) {
     toggleBtn.style.display = 'block';

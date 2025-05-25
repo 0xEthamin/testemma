@@ -1,4 +1,3 @@
-/* ===== CONTACT PAGE SPECIFIC ===== */
 .container {
     background-color: #ffffff;
     padding: 40px 50px;
@@ -17,7 +16,6 @@
     text-align: center;
 }
 
-/* Style pour les labels du formulaire */
 form label {
     font-weight: 600;
     margin-bottom: 10px;
@@ -26,7 +24,6 @@ form label {
     font-size: 1.1rem;
 }
 
-/* Style des champs de texte (input et textarea) */
 form input,
 form textarea {
     width: 100%;
@@ -39,7 +36,6 @@ form textarea {
     transition: all 0.3s ease;
 }
 
-/* Effet de focus sur les champs de texte */
 form input:focus,
 form textarea:focus {
     border: 1px solid #32B5A0;
@@ -47,7 +43,6 @@ form textarea:focus {
     outline: none;
 }
 
-/* Style du bouton d'envoi */
 form button {
     background-color: #32B5A0;
     color: white;
@@ -66,14 +61,12 @@ form button:hover {
     background-color: #28A48D;
 }
 
-/* Civilités : "Civilité :" label en block et radios côte à côte */
 form > label:first-of-type {
     font-weight: 600;
     margin-bottom: 8px;
     display: block;
 }
 
-/* Radios Monsieur / Madame côte à côte */
 form > label:nth-of-type(2),
 form > label:nth-of-type(3) {
     display: inline-flex;
@@ -84,7 +77,6 @@ form > label:nth-of-type(3) {
     cursor: pointer;
 }
 
-/* Case CGU alignée sur une ligne avec label */
 form > label:last-of-type {
     display: flex;
     align-items: center;
@@ -95,7 +87,6 @@ form > label:last-of-type {
     margin-bottom: 20px;
 }
 
-/* Inputs radio et checkbox taille normale et marge réduite */
 form input[type="radio"],
 form input[type="checkbox"] {
     width: auto;
@@ -103,7 +94,6 @@ form input[type="checkbox"] {
 }
 
 
-/* Amélioration des alertes */
 .alert {
     padding: 15px 20px;
     margin-bottom: 25px;
@@ -151,7 +141,6 @@ form input[type="checkbox"] {
     background-color: #dc3545;
 }
 
-/* Animation */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -162,7 +151,6 @@ form input[type="checkbox"] {
 }
 
 
-/* Responsivité */
 @media (max-width: 768px) {
     .container {
         padding: 20px;
@@ -177,7 +165,6 @@ form input[type="checkbox"] {
         font-size: 1rem;
     }
 
-    /* Radios Monsieur / Madame passent en block sur petit écran */
     form > label:nth-of-type(2),
     form > label:nth-of-type(3) {
         display: block;

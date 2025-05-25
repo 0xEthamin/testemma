@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header("Location: ../Views/contact_form.php?success=1");
         exit;
     } catch (PDOException $e) {
-        // Loguer l'erreur en interne et rediriger sans exposer le message exact
         error_log("Erreur d'insertion message de contact : " . $e->getMessage());
         header("Location: ../Views/contact_form.php?error=1");
         exit;

@@ -1,5 +1,4 @@
 <?php
-// Controllers/AvisController.php
 
 class AvisController {
     public function afficher() {

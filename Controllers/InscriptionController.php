@@ -33,7 +33,6 @@ class InscriptionController {
         $confirm_password = $_POST['confirm_password'] ?? '';
         $cgu_accepted = isset($_POST['cgu']);
 
-        // Validation
         if (!$cgu_accepted) {
             return "Vous devez accepter les Conditions Générales d'Utilisation.";
         }
@@ -67,7 +66,6 @@ class InscriptionController {
             return "Nom d'utilisateur déjà utilisé.";
         }
 
-        // Création de l'utilisateur
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $token = bin2hex(random_bytes(16));
 
@@ -87,17 +85,14 @@ class InscriptionController {
     }
 
     private function afficherFormulaire(string $message = ''): void {
-        // Définir les variables nécessaires pour la vue
         $isSuccess = str_contains($message, 'Inscription réussie');
         
-        // Chemin absolu vers la vue
         $viewPath = realpath(__DIR__ . '/../Views/creation_compte.php');
         
         if (!file_exists($viewPath)) {
             throw new RuntimeException("Vue introuvable: $viewPath");
         }
 
-        // Inclure la vue
         include $viewPath;
     }
 }

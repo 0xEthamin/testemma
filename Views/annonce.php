@@ -47,22 +47,18 @@
                     <h3><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 2.01L6 2c-1.1 0-2 .89-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.11-.9-1.99-2-1.99zM18 20H6v-9.02h12V20zm0-11H6V4h12v5z"/></svg>Services</h3>
                     <div class="services-list">
                         <?php
-                        // Décodage des services JSON
                         $servicesJson = $logement['house_services'] ?? '{}';
                         $servicesData = json_decode($servicesJson, true) ?? [];
-                        
-                        // Récupération des services PMR
+                   
                         $pmrServices = $servicesData['house_service']['Accessible PMR'] ?? [];
                         
-                        // Affichage des services
                         function displayService($serviceName) {
                             echo '<span class="service-tag">';
                             echo '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>';
                             echo htmlspecialchars($serviceName);
                             echo '</span>';
                         }
-                        
-                        // Services PMR
+                     
                         if (!empty($pmrServices)) {
                             foreach ($pmrServices as $service) {
                                 if (trim($service)) {
@@ -71,7 +67,6 @@
                             }
                         }
                         
-                        // Autres services
                         $otherServices = [
                             'Cuisine collective',
                             'Douche individuelle',
@@ -97,7 +92,6 @@
                 <div class="annonce-prices">
                     <h3>Tarifs</h3>
                     <?php 
-                    // Traitement robuste des prix
                     $prixBrut = $logement['prix'] ?? '';
                     $prixBrut = trim($prixBrut, '{} ');
                     $prixList = explode(',', $prixBrut);

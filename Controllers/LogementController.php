@@ -20,14 +20,12 @@ class LogementController {
 
     public function rechercher() {
     try {
-        // Récupération des paramètres de recherche
         $searchTerm = trim($_GET['search'] ?? '');
         $zone = trim($_GET['zone'] ?? '');
         $region = trim($_GET['region'] ?? '');
         $budget = isset($_GET['budget']) && is_numeric($_GET['budget']) ? (float)$_GET['budget'] : null;
         $sort = $_GET['sort'] ?? 'name_asc';
 
-        // Préparation des filtres
         $filters = [
             'search' => $searchTerm,
             'zone' => $zone,
@@ -36,28 +34,23 @@ class LogementController {
             'sort' => $sort
         ];
 
-        // Configuration de la pagination
         $logementsParPage = 30;
         $pageActuelle = max(1, (int)($_GET['pageNum'] ?? 1));
         $offset = ($pageActuelle - 1) * $logementsParPage;
 
-        // Récupération des données nécessaires
         $zones = $this->logementModel->getZones();
         $regions = $this->logementModel->getRegions();
 
-        // Récupération des logements filtrés
         $allLogements = $this->logementModel->getLogements($filters, 0, 0);
         $totalLogements = count($allLogements);
         $totalPages = max(1, ceil($totalLogements / $logementsParPage));
         $logements = array_slice($allLogements, $offset, $logementsParPage);
 
-        // Récupération des favoris si utilisateur connecté
         $favoris = [];
         if (isset($_SESSION['user'])) {
             $favoris = $this->favorisModel->getFavorisByUser($_SESSION['user']['id']);
         }
 
-        // Construction de la query string pour la pagination
         $queryString = '';
         foreach (['zone', 'region', 'search', 'budget', 'sort'] as $key) {
             if (!empty($filters[$key])) {
@@ -65,7 +58,6 @@ class LogementController {
             }
         }
 
-        // Affichage de la vue (la même que pour list())
         $this->renderView('logement-liste', [
             'logements' => $logements,
             'zones' => $zones,

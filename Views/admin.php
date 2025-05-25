@@ -12,7 +12,6 @@
 <section class="admin-panel">
   <h1>Panneau Administrateur</h1>
 
-  <!-- Utilisateurs non vérifiés -->
   <h2>Liste des utilisateurs non vérifiés</h2>
   <table>
     <thead>
@@ -36,7 +35,6 @@
     </tbody>
   </table>
 
-  <!-- Utilisateurs vérifiés -->
   <h2>Liste des utilisateurs vérifiés</h2>
   <table>
     <thead>
@@ -82,8 +80,6 @@
     </tbody>
   </table>
 
-
-  <!-- Messages contact -->
   <h2>Messages reçus depuis le formulaire de contact</h2>
   <table>
     <thead>
@@ -103,7 +99,6 @@
     </tbody>
   </table>
 
-  <!-- Messagerie admin -->
 <h2>Messagerie avec les utilisateurs</h2>
 <div class="admin-messaging">
   <aside class="user-list">
@@ -144,10 +139,10 @@
 <script>
 let currentUserId = null;
 
-let currentLimit = 5; // valeur par défaut
+let currentLimit = 5; 
 
 document.getElementById('admin-message-form').addEventListener('submit', function(e) {
-    e.preventDefault();  // bloque la soumission classique + rechargement
+    e.preventDefault();  
     sendAdminMessage();
 });
 
@@ -182,7 +177,6 @@ function displayMessages(messages, limit = 5) {
         return;
     }
 
-    // Si limit = 'all', afficher tout, sinon limiter
     let messagesToShow;
     if (limit === 'all') {
         messagesToShow = messages;
@@ -245,7 +239,6 @@ async function sendAdminMessage() {
 
         const text = await response.text();
 
-        // Essayer de parser le JSON
         let data;
         try {
             data = JSON.parse(text);
@@ -265,8 +258,6 @@ async function sendAdminMessage() {
     }
 }
 
-
-// Rafraîchissement automatique
 setInterval(() => {
     if (currentUserId) loadConversation(currentUserId);
 }, 5000);

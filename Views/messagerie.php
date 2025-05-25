@@ -14,7 +14,6 @@
     
     <div class="chat-container">
         <div class="messages" id="messages">
-            <!-- Les messages seront chargés via JavaScript -->
         </div>
         
         <div class="message-input">
@@ -31,7 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendButton = document.getElementById('send-button');
     const userId = <?= $_SESSION['user']['id'] ?? 0 ?>;
 
-    // Fonction d'affichage
     function displayMessages(messages) {
         messagesContainer.innerHTML = '';
         if (!messages || messages.length === 0) {
@@ -52,7 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
 
-    // Charger l'historique
     async function loadMessages() {
         try {
             const response = await fetch('/Controllers/getUserMessages.php');
@@ -64,7 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Envoyer un message
     async function sendMessage() {
         const message = messageInput.value.trim();
         if (!message) return;
@@ -96,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Charger les messages à l’arrivée + rafraîchir toutes les 5s
     loadMessages();
     setInterval(loadMessages, 5000);
 });

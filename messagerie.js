@@ -3,15 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const messageInput = document.getElementById('message-text');
   const sendButton = document.getElementById('send-button');
   
-  // Détermine le type de conversation
   const urlParams = new URLSearchParams(window.location.search);
   const type = urlParams.get('type');
   const recipient = urlParams.get('recipient');
   
-  // Charger les messages existants
   loadMessages();
   
-  // Envoyer un message
   sendButton.addEventListener('click', sendMessage);
   messageInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter' && !e.shiftKey) {
@@ -20,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
   
-  // Rafraîchir les messages toutes les 5 secondes
   setInterval(loadMessages, 5000);
   
   function loadMessages() {

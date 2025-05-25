@@ -1,5 +1,4 @@
 <?php
-// Controllers/ActualiteController.php
 
 class ActualiteController {
     private $articles = [
@@ -29,7 +28,7 @@ class ActualiteController {
     }
 
 public function detail($id) {
-    $id = (int)$id;  // forcer en entier
+    $id = (int)$id; 
 
     $article = null;
     foreach ($this->articles as $art) {

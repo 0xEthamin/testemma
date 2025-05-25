@@ -4,13 +4,12 @@ class ConnexionController {
     
 
     public function __construct($pdo) {
-        // La session est déjà démarrée dans index.php, pas besoin de la redémarrer
         $this->pdo = $pdo;
     }
 
     public function afficherFormulaire($error = '') {
         if (isset($_SESSION['user'])) {
-            header('Location: /index.php?page=profil'); // Chemin absolu
+            header('Location: /index.php?page=profil'); 
             exit;
         }
 
@@ -42,7 +41,6 @@ class ConnexionController {
                     return;
                 }
 
-                // Stockez TOUTES les données nécessaires pour le profil
                 $_SESSION['user'] = [
                     'id' => $user['id'],
                     'email' => $user['email'],
@@ -52,14 +50,12 @@ class ConnexionController {
                     'is_admin' => $user['is_admin'] ?? false
                 ];
 
-                // Définir également la variable de session admin si l'utilisateur est admin
                 if ($user['is_admin'] ?? false) {
                     $_SESSION['admin'] = true;
                 }
 
                 session_regenerate_id(true);
 
-                // Redirection avec chemin absolu
                 $redirectPage = ($user['is_admin'] ?? false) ? 'admin' : 'profil';
                 header("Location: /index.php?page=$redirectPage");
                 exit;
@@ -73,7 +69,6 @@ class ConnexionController {
     }
 
     public function connexion() {
-        // Méthode plus concise
         return $_SERVER['REQUEST_METHOD'] === 'POST' 
             ? $this->traiterConnexion() 
             : $this->afficherFormulaire();

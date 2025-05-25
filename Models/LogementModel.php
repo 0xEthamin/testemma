@@ -74,7 +74,6 @@ class LogementModel {
 
         $logements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Filtrage budget en PHP en utilisant uniquement le prix minimal
         if (!empty($filters['budget'])) {
             $budgetMax = (float) $filters['budget'];
             $logements = array_filter($logements, function ($logement) use ($budgetMax) {
@@ -120,7 +119,6 @@ class LogementModel {
 
         $logements = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Filtrage budget uniquement sur le prix minimal
         if (!empty($filters['budget'])) {
             $budgetMax = (float) $filters['budget'];
             $logements = array_filter($logements, function ($logement) use ($budgetMax) {
@@ -134,7 +132,6 @@ class LogementModel {
             });
         }
 
-        // Tri en PHP
         $sort = $filters['sort'] ?? 'name_asc';
         if ($sort === 'name_asc') {
             usort($logements, fn($a, $b) => strcmp($a['Nom'], $b['Nom']));
@@ -156,7 +153,6 @@ class LogementModel {
             });
         }
 
-        // Pagination en PHP
         if ($limit > 0) {
             $logements = array_slice($logements, $offset, $limit);
         }

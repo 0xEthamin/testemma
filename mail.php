@@ -1,10 +1,8 @@
 <?php
-// services/MailService.php
+require_once(__DIR__ . '/vendor/autoload.php');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-require_once __DIR__ . '/vendor/autoload.php';
 
 class MailService {
     private $mail;
@@ -19,7 +17,7 @@ class MailService {
         $this->mail->Host       = 'smtp.gmail.com';
         $this->mail->SMTPAuth   = true;
         $this->mail->Username   = 'emma.appg9c@gmail.com';
-        $this->mail->Password   = 'uidb psoe gmyy rfdw'; // mot de passe d’application
+        $this->mail->Password   = 'uidb psoe gmyy rfdw'; 
         $this->mail->SMTPSecure = 'tls';
         $this->mail->Port       = 587;
         $this->mail->setFrom('emma.appg9c@gmail.com', 'Etulogis');

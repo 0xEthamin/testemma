@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__ . '/../Models/User.php');
 
-class ProfilController {  // Nom corrigé
+class ProfilController { 
     private $pdo;
     
     public function __construct($pdo) {
@@ -20,7 +20,7 @@ class ProfilController {  // Nom corrigé
             header("Location: index.php?page=home");
             exit;
         }
-
+        $pdo = $this->pdo;
         include(__DIR__ . '/../Views/profil.php');
     }
 
@@ -45,7 +45,6 @@ class ProfilController {  // Nom corrigé
             User::updateProfile($userId, $newName, $newEmail, $newPhone);
             $_SESSION['success'] = "Profil mis à jour avec succès!";
             
-            // Mettre à jour les données en session si besoin
             $_SESSION['user_name'] = $newName;
             
         } catch (Exception $e) {

@@ -1,11 +1,9 @@
-/* Reset minimal */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Body & Layout */
 main {
   max-width: 500px;
   margin: 40px auto 40px auto;
@@ -16,7 +14,6 @@ main {
   flex-shrink: 0;
 }
 
-/* Titres */
 h1 {
   text-align: center;
   color: #2d3a4b;
@@ -24,7 +21,6 @@ h1 {
   font-weight: 700;
 }
 
-/* Form */
 .proposer-bien-form label {
   display: block;
   margin-bottom: 6px;
@@ -59,7 +55,6 @@ h1 {
   min-height: 100px;
 }
 
-/* Bouton */
 .proposer-bien-form button {
   width: 100%;
   padding: 12px;
@@ -79,7 +74,6 @@ h1 {
   outline: none;
 }
 
-/* Messages succès/erreur */
 .success, .error {
   padding: 12px;
   border-radius: 6px;
@@ -102,7 +96,6 @@ h1 {
 }
 
 
-/* Responsive */
 @media (max-width: 540px) {
   main {
     margin: 20px 10px;

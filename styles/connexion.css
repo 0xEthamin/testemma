@@ -1,11 +1,9 @@
-/* ===== RESET DE BASE ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  /* CONTAINER */
   main {
     flex-grow: 1;
     display: flex;
@@ -93,8 +91,7 @@
     color: #777;
   }
   
-  
-  /* RESPONSIVE */
+
   @media (max-width: 768px) {
     .header {
       flex-direction: column;

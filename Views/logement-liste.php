@@ -9,7 +9,6 @@ $pageActuelle = $pageActuelle ?? 1;
 $totalPages = $totalPages ?? 1;
 $queryString = $queryString ?? '';
 
-// Vérifier si l'utilisateur est connecté
 $isLoggedIn = isset($_SESSION['user']);
 $userId = $isLoggedIn ? $_SESSION['user']['id'] : null;
 ?>
@@ -27,10 +26,8 @@ $userId = $isLoggedIn ? $_SESSION['user']['id'] : null;
 <main>
     <h1>Nos Logements Disponibles</h1>
 
-    <!-- FILTRES -->
     <form method="get" action="index.php" class="logement-filter-form">
 
-        <!-- Première ligne : Zone, Région, Rechercher, Budget -->
         <div class="filter-line">
           <select name="zone" >
               <option value="">-- Zone --</option>
@@ -55,7 +52,6 @@ $userId = $isLoggedIn ? $_SESSION['user']['id'] : null;
           <input type="number" name="budget" placeholder="Budget max (€)" min="0" value="<?= htmlspecialchars($filters['budget']) ?>" />
         </div>
 
-        <!-- Deuxième ligne : Trier par, menu déroulant, bouton Filtrer -->
         <div class="sort-line">
           <label for="sort">Trier par :</label>
           <select name="sort" id="sort" onchange="this.form.submit()">
@@ -71,7 +67,6 @@ $userId = $isLoggedIn ? $_SESSION['user']['id'] : null;
         <input type="hidden" name="page" value="logement-liste" />
     </form>
 
-    <!-- LOGEMENTS -->
     <div class="container-logements" style="margin-top: 20px;">
         <?php if (count($logements) > 0): ?>
             <?php foreach ($logements as $logement): ?>
@@ -119,7 +114,6 @@ $userId = $isLoggedIn ? $_SESSION['user']['id'] : null;
         <?php endif; ?>
     </div>
 
-    <!-- PAGINATION -->
     <div class="pagination">
         <?php if ($pageActuelle > 1): ?>
             <a href="?page=logement-liste&pageNum=<?= ($pageActuelle - 1) . $queryString ?>" class="prev">Précédent</a>
@@ -166,13 +160,11 @@ async function toggleFavori(element) {
         });
 
         if (response.ok) {
-            // Animation
             iconDiv.style.transform = 'scale(1.2)';
             setTimeout(() => {
                 iconDiv.style.transform = 'scale(1)';
             }, 200);
             
-            // Changement d'image
             svgElement.classList.toggle('active');
         } else {
             const data = await response.json();

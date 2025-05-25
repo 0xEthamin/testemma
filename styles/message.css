@@ -1,4 +1,3 @@
-/* ===== CONTACT PAGE SPECIFIC ===== */
 .container {
     background-color: #ffffff;
     padding: 40px 50px;
@@ -17,7 +16,6 @@
     text-align: center;
   }
   
-  /* Style pour les labels du formulaire */
   form label {
     font-weight: 600;
     margin-bottom: 10px;
@@ -26,7 +24,6 @@
     font-size: 1.1rem;
   }
   
-  /* Style des champs de texte (input et textarea) */
   form input,
   form textarea {
     width: 100%;
@@ -39,7 +36,6 @@
     transition: all 0.3s ease;
   }
   
-  /* Effet de focus sur les champs de texte */
   form input:focus,
   form textarea:focus {
     border: 1px solid #32B5A0;
@@ -47,7 +43,6 @@
     outline: none;
   }
   
-  /* Style du bouton d'envoi */
   form button {
     background-color: #32B5A0;
     color: white;
@@ -68,7 +63,6 @@
   
 
   
-  /* Responsivité */
   @media (max-width: 768px) {
     .container {
       padding: 20px;

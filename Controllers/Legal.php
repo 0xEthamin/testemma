@@ -1,5 +1,4 @@
 <?php
-// Controllers/LegalController.php
 
 class LegalController {
     public function afficher() {

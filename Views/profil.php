@@ -1,18 +1,15 @@
 <?php 
 include __DIR__ . '/../header.php';
-require_once __DIR__ . '/../config.php';
 
-// Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['user'])) {
     header('Location: /index.php?page=connexion');
     exit;
 }
 
-// Récupère les infos de l'utilisateur connecté
 $user = $_SESSION['user'];
 
-// Récupération des favoris
 require_once __DIR__ . '/../Controllers/FavorisController.php';
+global $pdo;
 $favorisController = new FavorisController($pdo);
 $favoris = $favorisController->getFavoris($user['id']);
 ?>
@@ -30,7 +27,6 @@ $favoris = $favorisController->getFavoris($user['id']);
 
 <main>
   <div class="container">
-    <!-- Carte Profil -->
     <div class="card">
       <h2>Informations</h2>
       <ul class="profile-info">
@@ -45,7 +41,6 @@ $favoris = $favorisController->getFavoris($user['id']);
       </div>
     </div>
 
-    <!-- Critères -->
     <div class="card">
       <h2>Critères de recherche</h2>
       <label>Localisation :
@@ -76,7 +71,6 @@ $favoris = $favorisController->getFavoris($user['id']);
       <button class="btn btn-secondary">Réinitialiser</button>
     </div>
 
-    <!-- Espace perso avec onglets -->
     <div class="card">
       <h2>Mon Espace</h2>
       <div class="tabs">
@@ -85,7 +79,6 @@ $favoris = $favorisController->getFavoris($user['id']);
         <div class="tab-btn" onclick="showTab(2)">Alertes</div>
       </div>
 
-      <!-- Contenu des onglets -->
       <div class="tab-content active">
         <?php if (!empty($favoris)): ?>
           <div class="favoris-list">
@@ -112,7 +105,6 @@ $favoris = $favorisController->getFavoris($user['id']);
     </div>
   </div>
 
-  <!-- MODAL -->
   <div class="modal" id="modal">
     <div class="modal-content">
       <span class="close-modal" onclick="closeModal()">✖</span>

@@ -1,6 +1,4 @@
 <?php
-// Models/FavorisModel.php
-
 class FavorisModel {
     private $pdo;
 

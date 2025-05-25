@@ -1,5 +1,5 @@
 <?php
-$password = "admin"; // Remplace par ton mot de passe réel
+$password = "admin"; 
 $hash = password_hash($password, PASSWORD_DEFAULT);
 echo "Mot de passe hashé : " . $hash;
 ?>

@@ -9,10 +9,9 @@ class User {
     public static function setConnection($pdo) {
         self::$pdo = $pdo;
     }
-    // Méthode centrale pour exécuter les requêtes
     private static function executeQuery($pdo, $sql, $params = []) {
         try {
-            $stmt = $pdo->prepare($sql);  // Use the passed connection
+            $stmt = $pdo->prepare($sql);  
             $stmt->execute($params);
             return $stmt;
         } catch (PDOException $e) {
@@ -21,7 +20,6 @@ class User {
         }
     }
 
-    // Récupère les utilisateurs non vérifiés
     public static function getUnverifiedUsers($pdo) {
         $stmt = self::executeQuery($pdo, 
             "SELECT id, username, email, created_at 
@@ -30,7 +28,6 @@ class User {
         return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
     }
 
-    // Récupère les utilisateurs vérifiés
     public static function getVerifiedUsers($pdo) {
         $stmt = self::executeQuery($pdo, 
             "SELECT id, username, email, created_at 
@@ -39,7 +36,6 @@ class User {
         return $stmt ? $stmt->fetchAll(PDO::FETCH_ASSOC) : [];
     }
 
-    // Trouve un utilisateur par email
     public static function findByEmail($pdo, $email) {
         $stmt = self::executeQuery($pdo, 
             "SELECT * FROM users 
@@ -48,7 +44,6 @@ class User {
         return $stmt ? $stmt->fetch(PDO::FETCH_ASSOC) : false;
     }
 
-    // Définit le token de réinitialisation
     public static function setResetToken($pdo, $userId, $token, $expires) {
         return self::executeQuery($pdo, 
             "UPDATE users 
@@ -57,7 +52,6 @@ class User {
             [$token, $expires, $userId]);
     }
 
-    // Trouve un utilisateur par nom d'utilisateur
     public static function findByUsername($pdo, $username) {
         $stmt = self::executeQuery($pdo, 
             "SELECT * FROM users 
@@ -66,7 +60,6 @@ class User {
         return $stmt ? $stmt->fetch(PDO::FETCH_ASSOC) : false;
     }
 
-    // Met à jour le profil utilisateur
     public static function updateProfile($pdo, $userId, $name, $email, $phone) {
         return self::executeQuery($pdo, 
             "UPDATE users 
@@ -75,7 +68,6 @@ class User {
             [$name, $email, $phone, $userId]);
     }
 
-    // Trouve un utilisateur par token de réinitialisation valide
     public static function findByResetToken($pdo, $token) {
         $stmt = self::executeQuery($pdo, 
             "SELECT * FROM users 
@@ -85,7 +77,6 @@ class User {
         return $stmt ? $stmt->fetch(PDO::FETCH_ASSOC) : false;
     }
 
-    // Met à jour le mot de passe
     public static function updatePassword($pdo, $userId, $hashedPassword) {
         return self::executeQuery($pdo, 
             "UPDATE users 
@@ -94,7 +85,6 @@ class User {
             [$hashedPassword, $userId]);
     }
 
-    // Efface le token de réinitialisation
     public static function clearResetToken($pdo, $userId) {
         return self::executeQuery($pdo, 
             "UPDATE users 
@@ -103,13 +93,11 @@ class User {
             [$userId]);
     }
 
-    // Trouve un utilisateur par ID
     public static function findById($pdo, $id) {
         $stmt = self::executeQuery($pdo, "SELECT * FROM users WHERE id = ?", [$id]);
         return $stmt ? $stmt->fetch(PDO::FETCH_ASSOC) : false;
     }
 
-    // Méthode pour vérifier les credentials de connexion
     public static function verifyCredentials($pdo, $email, $password) {
         $user = self::findByEmail($pdo, $email);
         if ($user && password_verify($password, $user['password'])) {
@@ -118,7 +106,6 @@ class User {
         return false;
     }
 
-    // Méthode pour créer un nouvel utilisateur
     public static function create($pdo, $username, $email, $hashedPassword) {
         return self::executeQuery($pdo,
             "INSERT INTO users (username, email, password, created_at) 

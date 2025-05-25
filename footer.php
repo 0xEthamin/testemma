@@ -1,6 +1,5 @@
 <footer>
     <div class="footer-content">
-        <!-- Section Liens principaux -->
         <div class="footer-section">
             <div class="footer-links">
                 <a href="index.php?page=faq">FAQ</a>
@@ -9,7 +8,6 @@
             </div>
         </div>
 
-        <!-- Section Réseaux sociaux -->
         <div class="footer-section">
             <h4>Réseaux sociaux</h4>
             <div class="social-links">
@@ -31,7 +29,6 @@
             </div>
         </div>
 
-        <!-- Copyright -->
         <div class="footer-bottom">
             <p>&copy; <?php echo date('Y'); ?> Web Mimba. Tous droits réservés.</p>
         </div>

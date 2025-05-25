@@ -1,8 +1,7 @@
 <?php
 session_start();
-require_once(__DIR__ . '/../config.php'); // Connexion PDO
+require_once(__DIR__ . '/../config.php'); 
 
-// Vérification que l'admin est connecté
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     header("Location: login.php");
     exit;
