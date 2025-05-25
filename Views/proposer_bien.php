@@ -2,10 +2,10 @@
 include __DIR__ . '/../header.php';
 
 // Connexion à la base de données
-$host = 'localhost';
-$dbname = 'web_mimba';
-$user = 'root';
-$pass = '';
+$host = 'herogu.garageisep.com';
+$dbname = 'LL1QfAKjD6_etulogis';
+$user = 'cMHmeHfrqf_etulogis';
+$pass = 'JRDCBchpXzuMFBc2';
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -47,5 +47,25 @@
   </section>
 
   <?php include __DIR__ . '/../footer.php'; ?>
+
+  <script>
+    function lancerRecherche() {
+      const ville = document.getElementById('ville').value.trim();
+      const budget = document.getElementById('budget').value.trim();
+      const zone = encodeURIComponent(ville);
+
+      if (!ville) {
+        alert('Veuillez saisir une ville.');
+        return;
+      }
+
+      let url = `index.php?page=logement-liste&zone=${zone}`;
+      if (budget) {
+        url += `&budget=${encodeURIComponent(budget)}`;
+      }
+
+      window.location.href = url;
+    }
+  </script>
 </body>
 </html>

@@ -1,7 +1,12 @@
 <?php include __DIR__ . '/../header.php'; 
 
+
+$host = 'herogu.garageisep.com';
+$dbname = 'LL1QfAKjD6_etulogis';
+$user = 'cMHmeHfrqf_etulogis';
+$pass = 'JRDCBchpXzuMFBc2';
 // Connexion à la base de données
-$pdo = new PDO('mysql:host=localhost;dbname=web_mimba', 'root', '');
+$pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
 
 // Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['user'])) {
