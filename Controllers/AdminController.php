@@ -54,7 +54,8 @@ class AdminController {
 
         } catch (Exception $e) {
             error_log("Admin dashboard error: " . $e->getMessage());
-            $this->renderView('error', ['message' => 'Erreur lors du chargement du tableau de bord']);
+            echo "Erreur : page non trouvée.";
+            exit;
         }
     }
 
