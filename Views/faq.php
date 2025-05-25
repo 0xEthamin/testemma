@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>FAQ</title>
-  <link rel="stylesheet" href="../Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="../Web-Mimba/styles/faq.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/faq.css">
 </head>
 <body>
 <main>

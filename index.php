@@ -118,7 +118,7 @@ try {
                         $controller->updateProfile();
                     } else {
                         // Si tentative d'accès GET à update, rediriger vers le profil
-                        header("Location: /Web-Mimba/index.php?page=profil");
+                        header("Location: /index.php?page=profil");
                         exit;
                     }
                     break;
@@ -141,7 +141,7 @@ try {
                 default:
                     // Vérification supplémentaire contre les boucles
                     if (!isset($_SESSION['user']) && $_SERVER['REQUEST_METHOD'] === 'GET') {
-                        header("Location: /Web-Mimba/index.php?page=connexion");
+                        header("Location: index.php?page=connexion");
                         exit;
                     }
                     $controller->showProfile();

@@ -57,7 +57,7 @@ function handleChatAction(action) {
       addMessage('user', 'Je souhaite parler avec un administrateur');
       addMessage('bot', 'Connexion à l\'administrateur...');
       setTimeout(() => {
-        window.location.href = "/Web-Mimba/Views/messagerie.php";
+        window.location.href = "/Views/messagerie.php";
       }, 1500);
       break;
 
@@ -80,7 +80,7 @@ function handleChatAction(action) {
       addMessage('user', `Je cherche à ${selectedCity}`);
       addMessage('bot', `Recherche de logements à ${selectedCity} en cours...`);
       setTimeout(() => {
-        window.location.href = `/Web-Mimba/index.php?page=logement-liste&zone=${encodeURIComponent(selectedCity)}`;
+        window.location.href = `/index.php?page=logement-liste&zone=${encodeURIComponent(selectedCity)}`;
       }, 1000);
       break;
 

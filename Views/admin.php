@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Panneau Administrateur</title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css" />
-  <link rel="stylesheet" href="/Web-Mimba/styles/admin.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/admin.css" />
 </head>
 <body>  
 <section class="admin-panel">
@@ -158,7 +158,7 @@ function loadConversation(userId) {
     const container = document.getElementById('conversation-messages');
     container.innerHTML = '<p>Chargement...</p>';
     
-    fetch(`/Web-Mimba/Controllers/getMessage.php?user=${userId}`)
+    fetch(`/Controllers/getMessage.php?user=${userId}`)
         .then(response => {
             if (!response.ok) throw new Error('Erreur réseau');
             return response.json();
@@ -231,7 +231,7 @@ async function sendAdminMessage() {
     }
 
     try {
-        const response = await fetch('/Web-Mimba/Controllers/sendAdminMessage.php', {
+        const response = await fetch('/Controllers/sendAdminMessage.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',

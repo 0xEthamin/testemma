@@ -5,8 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Messagerie interne</title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/recherche_utilisateur.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/recherche_utilisateur.css">
 </head>
 <body>
 <div class="messagerie-container">
@@ -20,7 +20,7 @@
             </div>
         <?php endif; ?>
         
-        <form action="/Web-Mimba/index.php?page=messagerie" method="get" class="user-search-form">
+        <form action="/index.php?page=messagerie" method="get" class="user-search-form">
             <input type="hidden" name="page" value="messagerie">
             <input type="hidden" name="type" value="user">
             
@@ -46,7 +46,7 @@
                             <span class="username"><?= htmlspecialchars($user['username'], ENT_QUOTES, 'UTF-8') ?></span>
                             <span class="email"><?= htmlspecialchars($user['email'], ENT_QUOTES, 'UTF-8') ?></span>
                         </div>
-                        <a href="/Web-Mimba/index.php?page=messagerie&type=user&recipient=<?= urlencode($user['username']) ?>" 
+                        <a href="/index.php?page=messagerie&type=user&recipient=<?= urlencode($user['username']) ?>" 
                            class="contact-button">
                             Contacter
                         </a>

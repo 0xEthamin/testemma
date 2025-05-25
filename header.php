@@ -7,7 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // Define base URL - consider making this a config variable
-$base_url = '/Web-Mimba';
+$base_url = '';
 
 // User status check with null coalescing operator for cleaner code
 $isLoggedIn = isset($_SESSION['user']); 

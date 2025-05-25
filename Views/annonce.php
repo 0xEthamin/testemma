@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Détails du Logement</title>
-    <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-    <link rel="stylesheet" href="/Web-Mimba/styles/logement.css">
-    <link rel="stylesheet" href="/Web-Mimba/styles/annonce.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="/styles/logement.css">
+    <link rel="stylesheet" href="/styles/annonce.css">
 </head>
 <body>
 

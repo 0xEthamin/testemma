@@ -5,7 +5,7 @@ $pdo = new PDO('mysql:host=localhost;dbname=web_mimba', 'root', '');
 
 // Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['user'])) {
-    header('Location: /Web-Mimba/index.php?page=connexion');
+    header('Location: /index.php?page=connexion');
     exit;
 }
 
@@ -20,8 +20,8 @@ $user = $_SESSION['user'];
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Profil Utilisateur</title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css" />
-  <link rel="stylesheet" href="/Web-Mimba/styles/profil.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/profil.css" />
 </head>
 <body>
 
@@ -97,7 +97,7 @@ $user = $_SESSION['user'];
                     <div class="favori-item">
                         <h3><?= htmlspecialchars($logement['Nom']) ?></h3>
                         <p><?= htmlspecialchars($logement['Zone']) ?> - <?= htmlspecialchars($logement['regions']) ?></p>
-                        <a href="/Web-Mimba/index.php?page=detail&id=<?= $logement['id'] ?>">Voir le logement</a>
+                        <a href="/index.php?page=detail&id=<?= $logement['id'] ?>">Voir le logement</a>
                     </div>
                 <?php endforeach; ?>
             </div>

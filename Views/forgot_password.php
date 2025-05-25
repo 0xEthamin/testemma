@@ -8,8 +8,8 @@ include __DIR__ . '/../header.php';
   <meta charset="UTF-8" />
   <title>Réinitialisation de mot de passe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="../Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="../Web-Mimba/styles/reset.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/reset.css">
 </head>
 <body>
 <main>
@@ -22,7 +22,7 @@ include __DIR__ . '/../header.php';
             <div class="error"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
-        <form method="post" action="/Web-Mimba/index.php?page=mot-de-passe&action=sendResetLink">
+        <form method="post" action="/index.php?page=mot-de-passe&action=sendResetLink">
             <input type="email" name="email" placeholder="Votre email" required>
             <button type="submit">Envoyer le lien</button>
         </form>

@@ -10,7 +10,7 @@ class ConnexionController {
 
     public function afficherFormulaire($error = '') {
         if (isset($_SESSION['user'])) {
-            header('Location: /Web-Mimba/index.php?page=profil'); // Chemin absolu
+            header('Location: /index.php?page=profil'); // Chemin absolu
             exit;
         }
 
@@ -19,7 +19,7 @@ class ConnexionController {
 
     public function traiterConnexion() {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            header('Location: /Web-Mimba/index.php?page=connexion');
+            header('Location: /index.php?page=connexion');
             exit;
         }
 
@@ -61,7 +61,7 @@ class ConnexionController {
 
                 // Redirection avec chemin absolu
                 $redirectPage = ($user['is_admin'] ?? false) ? 'admin' : 'profil';
-                header("Location: /Web-Mimba/index.php?page=$redirectPage");
+                header("Location: /index.php?page=$redirectPage");
                 exit;
             } else {
                 $this->afficherFormulaire("Email ou mot de passe incorrect.");

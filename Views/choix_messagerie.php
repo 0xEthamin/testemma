@@ -5,8 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Messagerie interne</title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/messagerie.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/messagerie.css">
 </head>
 <body>
 <div class="messagerie-choice-container">

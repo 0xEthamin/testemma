@@ -28,7 +28,7 @@ class AuthController {
         session_destroy();
 
         // Rediriger vers la page d'accueil
-        header('Location: /Web-Mimba/index.php?page=home');
+        header('Location: /index.php?page=home');
         exit;
     }
 }

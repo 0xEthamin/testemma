@@ -82,7 +82,7 @@ class InscriptionController {
     }
 
     private function sendVerificationEmail(string $email, string $username, string $token): void {
-        $verificationLink = "http://localhost/Web-Mimba/verify.php?token=$token";
+        $verificationLink = "http://localhost/verify.php?token=$token";
         $this->mailService->sendConfirmationEmail($email, $username, $verificationLink);
     }
 

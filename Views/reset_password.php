@@ -7,8 +7,8 @@ include __DIR__ . '/../header.php';
   <meta charset="UTF-8" />
   <title>Réinitialisation du mot de passe</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/reset.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/reset.css">
 </head>
 <body>
 <main>
@@ -19,7 +19,7 @@ include __DIR__ . '/../header.php';
             <div class="alert alert-error"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
 
-        <form method="post" action="/Web-Mimba/index.php?page=mot-de-passe&action=resetPassword" novalidate>
+        <form method="post" action="/index.php?page=mot-de-passe&action=resetPassword" novalidate>
             <input type="hidden" name="token" value="<?= htmlspecialchars($_GET['token'] ?? '') ?>">
             
             <label for="password">Nouveau mot de passe :</label>

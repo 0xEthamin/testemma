@@ -5,8 +5,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/accueil.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/accueil.css">
   <title>Etulogis - Trouve ton logement</title>
 </head>
 
@@ -42,7 +42,7 @@
     <div class="cta-box">
       <h2>Prêt à trouver ton futur chez-toi ?</h2>
       <p>Rejoins notre communauté et découvre des offres exclusives adaptées à tes besoins.</p>
-      <button onclick="location.href='../Web-Mimba/Views/creation_compte.php'">Créer mon compte</button>
+      <button onclick="location.href='../Views/creation_compte.php'">Créer mon compte</button>
     </div>
   </section>
 

@@ -6,8 +6,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mentions Légales & Conditions Générales</title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/legal.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
+  <link rel="stylesheet" href="/styles/legal.css">
+  <link rel="stylesheet" href="/styles/style.css">
   
 </head>
 <body>

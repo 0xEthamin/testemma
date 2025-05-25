@@ -31,8 +31,8 @@ class PasswordController {
                 $expires = date('Y-m-d H:i:s', time() + 3600); // 1 heure de validité
 
                 if (User::setResetToken($this->pdo, $user['id'], $token, $expires)) {
-                    // Correction ici - Ajout du chemin /Web-Mimba/
-                    $resetLink = "http://" . $_SERVER['HTTP_HOST'] . "/Web-Mimba/index.php?page=mot-de-passe&action=resetForm&token=$token";
+                    // Correction ici - Ajout du chemin /
+                    $resetLink = "http://" . $_SERVER['HTTP_HOST'] . "/index.php?page=mot-de-passe&action=resetForm&token=$token";
 
                     try {
                         $this->mailService->sendResetEmail($email, $user['username'], $resetLink);

@@ -7,8 +7,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?= htmlspecialchars($article['titre']) ?></title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/article_detail.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/article_detail.css">
 </head>
 
 <body>

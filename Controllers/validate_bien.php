@@ -14,5 +14,5 @@ if ($id > 0) {
     $stmt->execute([$id]);
 }
 
-header("Location: ../Web-Mimba/Views/admin.php");
+header("Location: ../Views/admin.php");
 exit;

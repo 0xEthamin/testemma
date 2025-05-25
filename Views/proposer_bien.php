@@ -100,8 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Proposer un Bien</title>
-    <link rel="stylesheet" href="/Web-Mimba/styles/style.css" />
-    <link rel="stylesheet" href="/Web-Mimba/styles/proposer_bien.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/proposer_bien.css" />
 
 </head>
 <body>

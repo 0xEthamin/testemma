@@ -5,8 +5,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Messagerie interne</title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/messagerie.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/messagerie.css">
 </head>
 <body>
 <div class="messagerie-container">
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Charger l'historique
     async function loadMessages() {
         try {
-            const response = await fetch('/Web-Mimba/Controllers/getUserMessages.php');
+            const response = await fetch('/Controllers/getUserMessages.php');
             const data = await response.json();
             if (data.error) throw new Error(data.error);
             displayMessages(data);
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('user_id', userId);
 
         try {
-            const response = await fetch('/Web-Mimba/Controllers/sendMessage.php', {
+            const response = await fetch('/Controllers/sendMessage.php', {
                 method: 'POST',
                 body: formData
             });

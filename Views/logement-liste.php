@@ -20,8 +20,8 @@ $userId = $isLoggedIn ? $_SESSION['user']['id'] : null;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Liste de logements</title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css" />
-  <link rel="stylesheet" href="/Web-Mimba/styles/logement.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
+  <link rel="stylesheet" href="/styles/logement.css" />
 </head>
 <body>
 <main>
@@ -83,7 +83,7 @@ $userId = $isLoggedIn ? $_SESSION['user']['id'] : null;
                         <img src="<?= htmlspecialchars($photo) ?>" alt="" />
                     <?php endif; ?>
                     <div>
-                        <h2><a href="/Web-Mimba/index.php?page=detail&id=<?= $logement['id'] ?>"><?= htmlspecialchars($logement['Nom']) ?></a></h2>
+                        <h2><a href="/index.php?page=detail&id=<?= $logement['id'] ?>"><?= htmlspecialchars($logement['Nom']) ?></a></h2>
                         <p><strong>Zone :</strong> <?= htmlspecialchars($logement['Zone']) ?></p>
                         <p><strong>Région :</strong> <?= htmlspecialchars($logement['regions']) ?></p>
                         <?php
@@ -154,7 +154,7 @@ async function toggleFavori(element) {
     const isFavori = svgElement.classList.contains('active');
 
     try {
-        const response = await fetch('/Web-Mimba/index.php?page=toggle-favori', {
+        const response = await fetch('/index.php?page=toggle-favori', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setInterval(loadMessages, 5000);
   
   function loadMessages() {
-    let url = '/Web-Mimba/Controllers/getMessages.php';
+    let url = '/Controllers/getMessages.php';
     
     if (type === 'user' && recipient) {
       url += `?recipient=${encodeURIComponent(recipient)}`;
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         formData.append('recipient', recipient);
       }
       
-      fetch('/Web-Mimba/Controllers/sendMessage.php', {
+      fetch('/Controllers/sendMessage.php', {
         method: 'POST',
         body: formData
       })

@@ -34,8 +34,8 @@ if (isset($_GET['token']) && !empty($_GET['token'])) {
 <head>
     <meta charset="UTF-8">
     <title><?= $title ?></title>
-    <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/verify.css">
+    <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/verify.css">
 </head>
 <body>
 

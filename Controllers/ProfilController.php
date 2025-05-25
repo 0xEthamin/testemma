@@ -6,7 +6,7 @@ class ProfilController {  // Nom corrigé
     
     public function __construct($pdo) {
         if (!isset($_SESSION['user'])) {
-            header("Location: /Web-Mimba/index.php?page=connexion");
+            header("Location: /index.php?page=connexion");
             exit;
         }
         $this->pdo = $pdo;

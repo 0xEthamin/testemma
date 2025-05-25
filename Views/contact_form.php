@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact</title>
-  <link rel="stylesheet" href="/Web-Mimba/styles/style.css">
-  <link rel="stylesheet" href="/Web-Mimba/styles/contact.css">
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/contact.css">
 </head>
 <body>
   <main class="main-content">
