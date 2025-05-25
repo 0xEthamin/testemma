@@ -1,6 +1,83 @@
 <?php
-require_once(__DIR__ . '/../config.php');
-include(__DIR__ . '/../header.php');
+include __DIR__ . '/../header.php';
+include __DIR__ . '/../config.php'; // Assurez-vous que ce fichier contient la connexion PDO
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $titre = trim($_POST['titre'] ?? '');
+    $description = trim($_POST['description'] ?? '');
+    $prix = floatval($_POST['prix'] ?? 0);
+    $adresse = trim($_POST['adresse'] ?? '');
+    $zone = trim($_POST['zone'] ?? '');
+    $region = trim($_POST['region'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+
+
+
+    // Gestion de l'image
+    $imagePath = null;
+    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+        $fileType = mime_content_type($_FILES['image']['tmp_name']);
+        if (in_array($fileType, $allowedTypes)) {
+            $uploadDir = __DIR__ . '/uploads/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+            $extension = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
+            $fileName = uniqid('img_') . '.' . $extension;
+            $targetPath = $uploadDir . $fileName;
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $targetPath)) {
+                $imagePath = 'uploads/' . $fileName;
+            } else {
+                $error = "<span style='color:#c0392b;font-weight:bold;'>Erreur lors de l'envoi de l'image.</span>";
+            }
+        } else {
+            $error = "Format d'image non supporté. Formats acceptés : JPEG, PNG, GIF, WEBP.";
+        }
+    }
+
+    // Validation des champs
+    if (!$error) {
+        if ($titre && $description && $prix > 0 && $adresse) {
+            try {
+                // Insertion dans la table logements avec est_valide = 0
+                // Générer un ID unique
+                $id = null;
+                try {
+                    $stmt = $pdo->query("SELECT MAX(id) AS max_id FROM logements");
+                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $id = ($result['max_id'] ?? 0) + 1;
+                } catch (Exception $e) {
+                    $error = "Erreur lors de la génération de l'ID : " . $e->getMessage();
+                }
+                $sql = "INSERT INTO logements (id, Nom, Description, Adresse, photo, Zone, regions, mail, phone, est_valide)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute([
+                    $id,
+                    $titre,
+                    $description,
+                    $adresse,
+                    $imagePath,
+                    $zone,
+                    $region,
+                    $email,
+                    $phone
+                ]); 
+
+
+                // Redirection vers admin.php
+                $success = "Votre bien a été proposé avec succès. Il sera visible après validation par un administrateur.";
+
+            } catch (Exception $e) {
+                $error = "Erreur lors de l'ajout du logement : " . $e->getMessage();
+            }
+        } else {
+            $error = "Veuillez remplir tous les champs correctement.";
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -9,17 +86,18 @@ include(__DIR__ . '/../header.php');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Proposer un Bien</title>
-    <link rel="stylesheet" href="/styles/style.css" />
-    <link rel="stylesheet" href="/styles/proposer_bien.css" />
+    <link rel="stylesheet" href="/Web-Mimba/styles/style.css" />
+    <link rel="stylesheet" href="/Web-Mimba/styles/proposer_bien.css" />
+
 </head>
 <body>
 <main>
     <h1>Proposer un Bien</h1>
 
-    <?php if (!empty($success)): ?>
+    <?php if ($success): ?>
         <div class="success"><?= htmlspecialchars($success) ?></div>
-    <?php elseif (!empty($error)): ?>
-        <div class="error"><?= htmlspecialchars($error) ?></div>
+    <?php elseif ($error): ?>
+        <div class="error"><?= $error ?></div>
     <?php endif; ?>
 
     <form class="proposer-bien-form" method="post" action="" enctype="multipart/form-data">
@@ -40,7 +118,6 @@ include(__DIR__ . '/../header.php');
             }
             ?>
         </select>
-
         <label for="adresse">Adresse</label>
         <input type="text" id="adresse" name="adresse" required maxlength="255" value="<?= htmlspecialchars($_POST['adresse'] ?? '') ?>">
 
@@ -70,6 +147,7 @@ include(__DIR__ . '/../header.php');
 
         <button type="submit">Proposer</button>
     </form>
+
 </main>
 
 <?php include __DIR__ . '/../footer.php'; ?>
