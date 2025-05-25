@@ -1,0 +1,29 @@
+    .article-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .article-full {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+    .article-full h1 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    .article-full p {
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #0066cc;
+      text-decoration: none;
+    }
+    .back-link:hover {
+      text-decoration: underline;
+    }

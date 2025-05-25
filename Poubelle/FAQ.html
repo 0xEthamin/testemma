@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="FAQ.css">
+  <link rel="stylesheet" href="Style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FAQ - Etulogis</title>
+</head>
+<body>
+  <header>
+    
+  </header>
+
+  <h1>BESOINS D'AIDE ?</h1>
+
+  <div class="faq">
+
+    <!-- Section : Compte -->
+    <div class="faq-item">
+      <div class="faq-question">Comment créer un compte sur Etulogis ?</div>
+      <div class="faq-answer">
+        <p>Rendez-vous sur la <a href="Creation_compte.html">page d'inscription</a> et remplissez le formulaire avec vos informations étudiantes.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">J’ai oublié mon mot de passe, que faire ?</div>
+      <div class="faq-answer">
+        <p>Cliquez sur “Mot de passe oublié” sur la page de connexion et suivez les instructions pour réinitialiser votre mot de passe.</p>
+      </div>
+    </div>
+
+    <!-- Section : Offres de logement -->
+    <div class="faq-item">
+      <div class="faq-question">Comment postuler à une offre de logement ?</div>
+      <div class="faq-answer">
+        <p><a href="connexion.html">Connectez-vous</a> à votre compte, explorez les offres disponibles et cliquez sur “Postuler”.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Quels documents dois-je fournir ?</div>
+      <div class="faq-answer">
+        <p>L'ensemble des documents à fournir se trouve dans votre page <a href="Profil.html">Profile</a>.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Puis-je visiter le logement avant de réserver ?</div>
+      <div class="faq-answer">
+        <p>Oui, certaines offres permettent la visite. Vérifiez les modalités indiquées dans l’annonce ou contactez le propriétaire.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Y a-t-il des aides financières pour le logement étudiant ?</div>
+      <div class="faq-answer">
+        <p>Oui, vous pouvez faire une demande d’APL ou consulter le CROUS. Des aides locales sont parfois disponibles.</p>
+      </div>
+    </div>
+
+    
+
+    <div class="faq-item">
+      <div class="faq-question">Puis-je modifier ou annuler ma réservation ?</div>
+      <div class="faq-answer">
+        <p>Oui, vous pouvez modifier ou annuler un créneau tant qu’il n’est pas passé. Allez dans “Mes Réservations”.</p>
+      </div>
+    </div>
+
+   
+
+    <!-- Section : Sécurité -->
+    <div class="faq-item">
+      <div class="faq-question">Mes données sont-elles sécurisées ?</div>
+      <div class="faq-answer">
+        <p>Oui, nous utilisons des protocoles de sécurité pour protéger vos données personnelles et confidentielles. Pour en savoir plus consulter <a href="CGU_Mention_Legal.html">les "CGU"</a>.</p>
+      </div>
+    </div>
+
+    <!-- Section : Support -->
+    <div class="faq-item">
+      <div class="faq-question">Comment contacter le support ?</div>
+      <div class="faq-answer">
+        <p>Vous pouvez nous écrire à <a href="mailto:support@etulogis.com">support@etulogis.com</a> ou via le <a href="Contact.html">formulaire de contact</a>.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Où signaler un bug ou un problème technique ?</div>
+      <div class="faq-answer">
+        <p>Vous pouvez utiliser le  <a href="Contact.html">formulaire de contact</a> ou nous envoyer un email avec une capture d'écran du problème rencontré.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2025 Etulogis. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>

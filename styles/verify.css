@@ -1,0 +1,108 @@
+/* Container Styles - Complémentaire à votre fichier existant */
+body, html {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* aligner en haut */
+  padding: 60px 20px;      /* même padding que dans ta version fonctionnelle */
+  min-height: calc(100vh - 80px); /* au moins la hauteur visible */
+  box-sizing: border-box;
+}
+
+.container {
+  background: white;
+  padding: 40px;           /* même padding que fonctionnel */
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05); /* couleur plus douce */
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.container h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #004080;
+  font-weight: 600;
+}
+
+.container p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Button Styles - Cohérent avec votre thème existant */
+a.button {
+  display: inline-block;
+  background-color: #004080;
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+a.button:hover {
+  background-color: #0066cc;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  main {
+    padding: 40px 10px;
+  }
+  
+  .container {
+    padding: 30px 20px;
+    max-width: calc(100% - 40px);
+    margin: 30px 20px;
+  }
+  
+  .container h1 {
+    font-size: 22px;
+  }
+  
+  .container p {
+    font-size: 15px;
+    margin-bottom: 18px;
+  }
+  
+  a.button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animation for better interaction */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-out forwards;
+}

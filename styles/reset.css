@@ -1,0 +1,70 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  padding: 25px;
+  justify-content: center;
+}
+
+.container {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+}
+
+
+.container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #004080;
+}
+
+.container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.container button {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.container button:hover {
+  background-color: #0066cc;
+}
+
+.container .message {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+.container .error {
+  color: red;
+}
+
+.container a {
+  text-decoration: none;
+  color: #004080;
+  font-weight: bold;
+}

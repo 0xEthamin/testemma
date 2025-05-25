@@ -1,0 +1,250 @@
+/* === RESET & BASE === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.4s, color 0.4s;
+}
+
+:root {
+  --primary: #1976d2;
+  --danger: #e53935;
+  --bg: #f5f5f5;
+  --text: #111;
+  --card-bg: #fff;
+  --shadow: rgba(0,0,0,0.1);
+}
+
+.dark {
+  --bg: #121212;
+  --text: #e0e0e0;
+  --card-bg: #1f1f1f;
+  --shadow: rgba(255,255,255,0.05);
+}
+
+/* === HEADER === */
+header {
+  background: var(--primary);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  color: var(--primary);
+  border: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* === COVER & PROFILE === */
+.cover {
+  width: 100%;
+  height: 200px;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid var(--card-bg);
+  position: absolute;
+  top: 160px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.3s;
+}
+
+.profile-img:hover {
+  transform: translateX(-50%) scale(1.05);
+}
+
+/* === FAVORIS LIST === */
+.favoris-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.favori-item {
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px var(--shadow);
+    transition: transform 0.3s;
+}
+
+.favori-item:hover {
+    transform: translateY(-2px);
+}
+
+.favori-item h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary);
+}
+
+.favori-item p {
+    margin: 0 0 0.5rem 0;
+    color: var(--text);
+    opacity: 0.8;
+}
+
+.favori-item a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+.favori-item a:hover {
+    text-decoration: underline;
+}
+
+/* === CONTAINER & CARDS === */
+.container {
+  padding: 100px 20px 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 25px;
+  width: 320px;
+  box-shadow: 0 8px 20px var(--shadow);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* === BUTTONS === */
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.btn-primary { background: var(--primary); color: white; }
+.btn-danger { background: var(--danger); color: white; }
+.btn-secondary { background: #888; color: white; }
+
+/* === PROFILE INFO === */
+.profile-info {
+  list-style: none;
+  margin: 20px 0;
+}
+
+.pdf-section {
+  margin-top: 20px;
+}
+
+/* === SELECTS === */
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+}
+
+/* === TABS === */
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.tab-btn {
+  flex: 1;
+  text-align: center;
+  padding: 8px;
+  background: #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.tab-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+.tab-content {
+  display: none;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.tab-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* === MODAL === */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.modal-content {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.close-modal {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === RESPONSIVE === */
+@media(max-width: 768px) {
+  .card { width: 90%; }
+  
+  .tabs {
+    flex-direction: column;
+  }
+  
+  .favori-item {
+    padding: 0.8rem;
+  }
+}

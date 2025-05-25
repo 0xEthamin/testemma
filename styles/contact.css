@@ -1,0 +1,109 @@
+/* ===== CONTACT PAGE SPECIFIC ===== */
+.container {
+    background-color: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin: 40px auto;
+    max-width: 900px;
+    transition: all 0.3s ease;
+  }
+  
+  .container h1 {
+    font-size: 2.8rem;
+    color: #2F3A4C;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+  }
+  
+  .container h2 {
+    margin-bottom: 30px;
+    color: #2F3A4C;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  /* Style pour les labels du formulaire */
+  form label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    display: block;
+    font-size: 1.1rem;
+  }
+  
+  /* Style des champs de texte (input et textarea) */
+  form input,
+  form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+  }
+  
+  /* Effet de focus sur les champs de texte */
+  form input:focus,
+  form textarea:focus {
+    border: 1px solid #32B5A0;
+    background-color: #ffffff;
+    outline: none;
+  }
+  
+  /* Style du bouton d'envoi */
+  form button {
+    background-color: #32B5A0;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  form button:hover {
+    transform: scale(1.05);
+    background-color: #28A48D;
+  }
+
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.alert.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.alert.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+  
+  /* Responsivité */
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px;
+    }
+    
+    .container h2 {
+      font-size: 1.8rem;
+    }
+  
+    form button {
+      padding: 15px;
+      font-size: 1rem;
+    }
+  }

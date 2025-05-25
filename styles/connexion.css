@@ -1,0 +1,117 @@
+/* ===== RESET DE BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* CONTAINER */
+  main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+  }
+  
+  .container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .container h2 {
+    color: #2F3A4C;
+    margin-bottom: 30px;
+    font-size: 2rem;
+  }
+  
+  form label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    display: block;
+    font-size: 1.1rem;
+    text-align: left;
+  }
+  
+  form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+  }
+  
+  form input:focus {
+    border: 1px solid #32B5A0;
+    background-color: #ffffff;
+    outline: none;
+  }
+  
+  form button {
+    background-color: #32B5A0;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  form button:hover {
+    transform: scale(1.05);
+    background-color: #28A48D;
+  }
+  
+  p a {
+    color: #32B5A0;
+    text-decoration: none;
+  }
+  
+  p a:hover {
+    color: #28A48D;
+  }
+  
+  .signup-link {
+    margin-top: 20px;
+  }
+  
+  .signup-link p {
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 20px;
+    }
+  
+    .nav {
+      margin-top: 15px;
+    }
+  
+    .container {
+      padding: 30px 20px;
+    }
+  
+    main {
+      padding: 40px 10px;
+    }
+  }
+  

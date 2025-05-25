@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profil Utilisateur</title>
+  <style>
+    /* === RESET & BASE === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.4s, color 0.4s;
+    }
+
+    :root {
+      --primary: #1976d2;
+      --danger: #e53935;
+      --bg: #f5f5f5;
+      --text: #111;
+      --card-bg: #fff;
+      --shadow: rgba(0,0,0,0.1);
+    }
+
+    .dark {
+      --bg: #121212;
+      --text: #e0e0e0;
+      --card-bg: #1f1f1f;
+      --shadow: rgba(255,255,255,0.05);
+    }
+
+    /* === HEADER === */
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: var(--primary);
+      border: none;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* === COVER & PROFILE ===v */
+    .cover {
+      width: 100%;
+      height: 200px;
+      background: url('https://picsum.photos/1200/300') center/cover no-repeat;
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--card-bg);
+      position: absolute;
+      top: 160px;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.3s;
+    }
+
+    .profile-img:hover {
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    /* === CONTAINER & CARDS === */
+    .container {
+      padding: 100px 20px 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 25px;
+      width: 320px;
+      box-shadow: 0 8px 20px var(--shadow);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* === BUTTONS === */
+    .btn {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    .btn-primary { background: var(--primary); color: white; }
+    .btn-danger { background: var(--danger); color: white; }
+    .btn-secondary { background: #888; color: white; }
+
+    /* === PROFILE INFO === */
+    .profile-info {
+      list-style: none;
+      margin: 20px 0;
+    }
+
+    .pdf-section {
+      margin-top: 20px;
+    }
+
+    /* === SELECTS === */
+    select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      margin-top: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+    }
+
+    /* === TABS === */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      text-align: center;
+      padding: 8px;
+      background: #ddd;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    /* === PROGRESS === */
+    .progress-container {
+      background: #eee;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .progress-bar {
+      height: 20px;
+      background: var(--primary);
+      width: 80%;
+      animation: growBar 1s ease-out;
+    }
+
+    @keyframes growBar {
+      from { width: 0; }
+      to { width: 80%; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* === MODAL === */
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      display: none;
+    }
+
+    .modal-content {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .close-modal {
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    /* === RESPONSIVE === */
+    @media(max-width: 768px) {
+      .card { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mon Profil</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </header>
+
+  <div class="cover"></div>
+  <img src="https://i.pravatar.cc/120" alt="Profil" class="profile-img" />
+
+  <div class="container">
+
+    <!-- Carte Profil -->
+    <div class="card">
+      <h2>Informations</h2>
+      <ul class="profile-info">
+        <li><strong>Nom :</strong> Jean Dupont</li>
+        <li><strong>Email :</strong> jean.dupont@email.com</li>
+        <li><strong>Téléphone :</strong> 06 12 34 56 78</li>
+      </ul>
+      <div class="progress-container">
+        <div class="progress-bar"></div>
+      </div>
+      <button class="btn btn-primary" onclick="openModal()">Modifier</button>
+      <div class="pdf-section">
+        <p><strong>Document :</strong> Profil_complet.pdf</p>
+        <button class="btn btn-danger">Supprimer</button>
+      </div>
+    </div>
+
+    <!-- Critères -->
+    <div class="card">
+      <h2>Critères de recherche</h2>
+      <label>Localisation :
+        <select>
+          <option>Choisir</option>
+          <option>Paris</option>
+          <option>Lyon</option>
+          <option>Marseille</option>
+        </select>
+      </label>
+      <label>DPE :
+        <select>
+          <option>Choisir</option>
+          <option>A</option>
+          <option>B</option>
+          <option>C</option>
+          <option>D</option>
+        </select>
+      </label>
+      <label>Prix :
+        <select>
+          <option>-600€</option>
+          <option>600-800€</option>
+          <option>800-1000€</option>
+          <option>1000€+</option>
+        </select>
+      </label>
+      <button class="btn btn-secondary">Réinitialiser</button>
+    </div>
+
+    <!-- Espace perso avec onglets -->
+    <div class="card">
+      <h2>Mon Espace</h2>
+      <div class="tabs">
+        <div class="tab-btn active" onclick="showTab(0)">Favoris</div>
+        <div class="tab-btn" onclick="showTab(1)">Demandes</div>
+        <div class="tab-btn" onclick="showTab(2)">Alertes</div>
+      </div>
+
+      <div class="tab-content active">
+        <p>⭐ Aucun favori pour le moment.</p>
+      </div>
+      <div class="tab-content">
+        <p>📨 Vous n'avez pas encore fait de demande.</p>
+      </div>
+      <div class="tab-content">
+        <p>🔔 Aucune alerte active.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="closeModal()">✖</span>
+      <h2>Modifier mes infos</h2>
+      <input type="text" placeholder="Nom" style="width:100%;margin:10px 0;padding:8px;">
+      <input type="email" placeholder="Email" style="width:100%;margin:10px 0;padding:8px;">
+      <input type="tel" placeholder="Téléphone" style="width:100%;margin:10px 0;padding:8px;">
+      <button class="btn btn-primary" onclick="closeModal()">Enregistrer</button>
+    </div>
+  </div>
+
+  <script>
+    // Thème
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+
+    // Onglets
+    function showTab(index) {
+      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        btn.classList.toggle('active', i === index);
+      });
+      document.querySelectorAll('.tab-content').forEach((tab, i) => {
+        tab.classList.toggle('active', i === index);
+      });
+    }
+
+    // Modal
+    function openModal() {
+      document.getElementById('modal').classList.add('show');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('show');
+    }
+  </script>
+</body>
+</html>

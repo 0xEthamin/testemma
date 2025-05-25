@@ -1,0 +1,298 @@
+/* MAIN CONTENT */
+main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+/* FORMULAIRE DE FILTRES */
+.logement-filter-form {
+    /* Utilisation de flexbox en colonne pour séparer les lignes */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+/* Première ligne de filtres (zone, région, recherche, budget) */
+.filter-line {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Largeur minimale des selects et inputs */
+.filter-line select,
+.filter-line input {
+    min-width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* Deuxième ligne (trier par, menu déroulant, bouton) */
+.sort-line {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 900px;
+}
+
+.sort-line label {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Styles pour le select de tri */
+select#sort {
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+select#sort:hover {
+    background-color: #e0e0e0;
+}
+
+/* Bouton filtrer */
+.sort-line button {
+    padding: 10px 20px;
+    background-color: #32b5a0;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sort-line button:hover {
+    background-color: #28a896;
+}
+
+/* GRILLE DES LOGEMENTS */
+.container-logements {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logement {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.logement:hover {
+    transform: translateY(-5px);
+}
+
+.logement img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.logement > div {
+    padding: 16px;
+}
+
+.logement h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+}
+
+.logement a {
+    text-decoration: none;
+    color: #32b5a0;
+}
+
+.logement p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+/* PAGINATION */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 15px;
+}
+
+.pagination a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination a:hover {
+    background-color: #32b5a0;
+    color: white;
+}
+
+.pagination a.active {
+    background-color: #32b5a0;
+    color: white;
+}
+
+.pagination .prev,
+.pagination .next {
+    font-weight: 600;
+}
+
+/* DÉTAILS LOGEMENT */
+.logement-details {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.details {
+    flex: 1;
+}
+
+.details p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+/* BOUTON MESSAGE */
+.message-button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    background-color: #32b5a0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.message-button:hover {
+    background-color: #28a28b;
+}
+
+/* LIEN RETOUR */
+.back-link {
+    background: none;
+    border: none;
+    color: #0066cc;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: inherit;
+    padding: 0;
+    font-family: inherit;
+}
+
+.back-link:hover {
+    color: #004499;
+    text-decoration: none;
+}
+
+/* Style pour les images des logements */
+.logement-details .image img {
+    width: 100%;
+    max-width: 600px;  /* Taille maximale */
+    height: 400px;     /* Hauteur fixe */
+    object-fit: cover;  /* Conserve les proportions et couvre l'espace */
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Pour la liste des logements */
+.container-logements .logement img {
+    width: 100%;
+    height: 200px;     /* Hauteur plus petite pour la liste */
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+
+.favori-icon {
+    width: 32px;
+    height: 32px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 2;
+}
+
+.favori-icon:hover {
+    transform: scale(1.1);
+}
+
+.favori-svg {
+    width: 20px;
+    height: 20px;
+    fill: #ccc;
+    transition: fill 0.3s ease;
+}
+
+.favori-svg.active {
+    fill: #e74c3c;
+}
+
+/* Animation au clic */
+.favori-icon:active {
+    transform: scale(0.9);  /* Effet de pression */
+}
+
+.logement {
+    position: relative; /* Nécessaire pour le positionnement absolu de l'icône */
+}

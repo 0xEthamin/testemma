@@ -1,0 +1,45 @@
+/* === LEGAL PAGE === */
+.legal-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px var(--shadow);
+    line-height: 1.8;
+  }
+  h1 {
+    text-align: center;
+    color: #010b15;
+    margin-bottom: 2rem
+  }
+  
+  .legal-container h2 {
+    color: #2980b9;
+    margin-top: 30px;
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 8px;
+  }
+  
+  
+  .legal-container p {
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+  
+  .legal-container ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .legal-container li {
+    margin-bottom: 8px;
+  }
+  
+  /* === Retirer l'image en fond d'ecran === */
+  body.no-bg-image {
+    background-image: none !important;
+    background-color: #f5f5f5; /* ou une autre couleur neutre */
+  }
+  

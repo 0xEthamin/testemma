@@ -1,0 +1,186 @@
+/* ===== CONTACT PAGE SPECIFIC ===== */
+.container {
+    background-color: #ffffff;
+    padding: 40px 50px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    margin: 40px auto;
+    max-width: 900px;
+    transition: all 0.3s ease;
+}
+
+.container h2 {
+    margin-bottom: 30px;
+    color: #2F3A4C;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Style pour les labels du formulaire */
+form label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+    display: block;
+    font-size: 1.1rem;
+}
+
+/* Style des champs de texte (input et textarea) */
+form input,
+form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: #fafafa;
+    transition: all 0.3s ease;
+}
+
+/* Effet de focus sur les champs de texte */
+form input:focus,
+form textarea:focus {
+    border: 1px solid #32B5A0;
+    background-color: #ffffff;
+    outline: none;
+}
+
+/* Style du bouton d'envoi */
+form button {
+    background-color: #32B5A0;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+}
+
+form button:hover {
+    transform: scale(1.05);
+    background-color: #28A48D;
+}
+
+/* Civilités : "Civilité :" label en block et radios côte à côte */
+form > label:first-of-type {
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Radios Monsieur / Madame côte à côte */
+form > label:nth-of-type(2),
+form > label:nth-of-type(3) {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* Case CGU alignée sur une ligne avec label */
+form > label:last-of-type {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+/* Inputs radio et checkbox taille normale et marge réduite */
+form input[type="radio"],
+form input[type="checkbox"] {
+    width: auto;
+    margin: 0 6px 0 0;
+}
+
+
+/* Amélioration des alertes */
+.alert {
+    padding: 15px 20px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.alert-success {
+    background-color: #e6f7ee;
+    color: #0d683e;
+    border: 1px solid #b8e6d0;
+}
+
+.alert-success:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #28a745;
+}
+
+.alert-error {
+    background-color: #fce8e8;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-error:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: #dc3545;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.alert {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .container h2 {
+        font-size: 1.8rem;
+    }
+
+    form button {
+        padding: 15px;
+        font-size: 1rem;
+    }
+
+    /* Radios Monsieur / Madame passent en block sur petit écran */
+    form > label:nth-of-type(2),
+    form > label:nth-of-type(3) {
+        display: block;
+        margin-bottom: 10px;
+    }
+}

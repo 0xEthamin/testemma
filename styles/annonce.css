@@ -1,0 +1,264 @@
+/* annonce.css */
+
+/* Structure principale */
+.annonce-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* En-tête de l'annonce */
+.annonce-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #32B5A0;
+}
+
+.annonce-title {
+    font-size: 2.2rem;
+    color: #2F3A4C;
+    margin-bottom: 0.5rem;
+}
+
+.annonce-location {
+    font-size: 1.2rem;
+    color: #32B5A0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.annonce-location svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Contenu principal */
+.annonce-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 992px) {
+    .annonce-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Galerie d'images */
+.annonce-gallery {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    height: 400px;
+}
+
+.annonce-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.annonce-gallery:hover img {
+    transform: scale(1.02);
+}
+
+/* Détails de l'annonce */
+.annonce-details {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.detail-section {
+    margin-bottom: 1.5rem;
+}
+
+.detail-section h3 {
+    color: #2F3A4C;
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.detail-section h3 svg {
+    width: 20px;
+    height: 20px;
+    fill: #32B5A0;
+}
+
+.detail-section p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+/* Prix */
+.annonce-prices {
+    background: #f5f7fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-label {
+    font-weight: 600;
+    color: #2F3A4C;
+}
+
+.price-value {
+    color: #32B5A0;
+    font-weight: bold;
+}
+
+/* Boutons d'action */
+.annonce-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background-color: #32B5A0;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #2a9d8a;
+    transform: translateY(-2px);
+}
+
+.btn-primary svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.btn-secondary {
+    background-color: white;
+    color: #32B5A0;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #32B5A0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+    background-color: #f0f9f8;
+    transform: translateY(-2px);
+}
+
+/* Section cachée */
+.more-details {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 8px;
+    display: none;
+}
+
+.more-details.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .annonce-title {
+        font-size: 1.8rem;
+    }
+    
+    .annonce-gallery {
+        height: 300px;
+    }
+    
+    .annonce-actions {
+        flex-direction: column;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Icônes */
+.icon-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.icon-text svg {
+    width: 18px;
+    height: 18px;
+    fill: #32B5A0;
+}
+
+/* Services */
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.service-tag {
+    background: #e8f5f3;
+    color: #2F3A4C;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.service-tag svg {
+    width: 14px;
+    height: 14px;
+    fill: #32B5A0;
+}

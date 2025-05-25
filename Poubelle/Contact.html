@@ -1,0 +1,46 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="navbar">
+      
+      
+      <ul class="nav">
+        <div class="logo">
+          <a href="Accueil.html">
+        <img src="resources/logo.jpg" alt="Etulogis"/>
+      </a>
+    </div>
+        <li><a href="Logement.html" class="nav-button">Logements</a></li>
+        <li><a href="Proposer_Bien.html" class="nav-button">Proposer un bien</a></li>
+        <li><a href="Actualité.html" class="nav-button">Découvrir</a></li>
+        <li><a href="Contact.html" class="nav-button">Contact</a></li>
+        <li><a href="Connexion.html" class="nav-button">Connexion</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Formulaire de contact</h2>
+    <form>
+      <label for="name">Nom :</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message :</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion</title>
+  <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="Connexion.css">
+</head>
+
+<header class="header">
+  <nav class="navbar">
+    
+    
+    <ul class="nav">
+      <div class="logo">
+        <a href="Accueil.html">
+      <img src="resources/logo.jpg" alt="Etulogis"/>
+    </a>
+  </div>
+      <li><a href="Logement.html" class="nav-button">Logements</a></li>
+      <li><a href="Proposer_Bien.html" class="nav-button">Proposer un bien</a></li>
+      <li><a href="Actualité.html" class="nav-button">Découvrir</a></li>
+      <li><a href="Contact.html" class="nav-button">Contact</a></li>
+      <li><a href="Connexion.html" class="nav-button">Connexion</a></li>
+    </ul>
+  </nav>
+</header>
+<body>
+  <main>
+  <div class="container">
+    <h2>Se connecter</h2>
+    <form action="Connexion.php" method="post">
+      <label for="email">Adresse email</label>
+      <input type="email" id="email" name="email" placeholder="Adresse email" required><br>
+      
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" name="password" placeholder="Mot de passe" required><br>
+      
+      <button type="submit">Connexion</button>
+    </form>
+
+    <p><a href="mot_de_passe_oublie.php">Mot de passe oublié ?</a></p>
+
+    <div class="signup-link">
+      <p>Pas encore de compte ? <a href="Creation_compte.php">Créer un compte</a></p>
+    </div>
+  </div>
+  </main>
+
+  <footer>
+    <div class="footer-links">
+        <a href="FAQ.php">FAQ</a>
+        <a href="CGU_Mention_Legal.php">CGU et Mentions Légales</a>
+    </div>
+    <h4>Réseaux sociaux</h4>
+</footer>
+</body>
+</html>
