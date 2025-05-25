@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Models/User.php';
+require_once(__DIR__ . '/../Models/User.php');
 
 class ProfilController {  // Nom corrigé
     private $pdo;

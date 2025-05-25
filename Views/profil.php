@@ -1,12 +1,6 @@
-<?php include __DIR__ . '/../header.php'; 
-
-
-$host = 'herogu.garageisep.com';
-$dbname = 'LL1QfAKjD6_etulogis';
-$user = 'cMHmeHfrqf_etulogis';
-$pass = 'JRDCBchpXzuMFBc2';
-// Connexion à la base de données
-$pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
+<?php 
+include __DIR__ . '/../header.php';
+require_once __DIR__ . '/../config.php';
 
 // Vérifie si l'utilisateur est connecté
 if (!isset($_SESSION['user'])) {
@@ -17,23 +11,25 @@ if (!isset($_SESSION['user'])) {
 // Récupère les infos de l'utilisateur connecté
 $user = $_SESSION['user'];
 
+// Récupération des favoris
+require_once __DIR__ . '/../Controllers/FavorisController.php';
+$favorisController = new FavorisController($pdo);
+$favoris = $favorisController->getFavoris($user['id']);
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Profil Utilisateur</title>
-  <link rel="stylesheet" href="/styles/style.css" />
-  <link rel="stylesheet" href="/styles/profil.css" />
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/profil.css">
 </head>
 <body>
 
-  <main>
-
+<main>
   <div class="container">
-
     <!-- Carte Profil -->
     <div class="card">
       <h2>Informations</h2>
@@ -91,23 +87,18 @@ $user = $_SESSION['user'];
 
       <!-- Contenu des onglets -->
       <div class="tab-content active">
-        <?php
-        require_once __DIR__ . '/../Controllers/FavorisController.php';
-        $favorisController = new FavorisController($pdo);
-        $favoris = $favorisController->getFavoris($user['id']);
-
-        if (count($favoris) > 0): ?>
-            <div class="favoris-list">
-                <?php foreach ($favoris as $logement): ?>
-                    <div class="favori-item">
-                        <h3><?= htmlspecialchars($logement['Nom']) ?></h3>
-                        <p><?= htmlspecialchars($logement['Zone']) ?> - <?= htmlspecialchars($logement['regions']) ?></p>
-                        <a href="/index.php?page=detail&id=<?= $logement['id'] ?>">Voir le logement</a>
-                    </div>
-                <?php endforeach; ?>
-            </div>
+        <?php if (!empty($favoris)): ?>
+          <div class="favoris-list">
+            <?php foreach ($favoris as $logement): ?>
+              <div class="favori-item">
+                <h3><?= htmlspecialchars($logement['Nom']) ?></h3>
+                <p><?= htmlspecialchars($logement['Zone']) ?> - <?= htmlspecialchars($logement['regions']) ?></p>
+                <a href="/index.php?page=detail&id=<?= $logement['id'] ?>">Voir le logement</a>
+              </div>
+            <?php endforeach; ?>
+          </div>
         <?php else: ?>
-            <p>⭐ Aucun favori pour le moment.</p>
+          <p>⭐ Aucun favori pour le moment.</p>
         <?php endif; ?>
       </div>
       
@@ -127,9 +118,9 @@ $user = $_SESSION['user'];
       <span class="close-modal" onclick="closeModal()">✖</span>
       <h2>Modifier mes infos</h2>
       <form method="POST" action="index.php?controller=profile&action=updateProfile">
-        <input type="text" name="name" placeholder="Nom" value="<?= htmlspecialchars($user['name']) ?>" style="width:100%;margin:10px 0;padding:8px;" required>
-        <input type="email" name="email" placeholder="Email" value="<?= htmlspecialchars($user['email']) ?>" style="width:100%;margin:10px 0;padding:8px;" required>
-        <input type="tel" name="phone" placeholder="Téléphone" value="<?= htmlspecialchars($user['phone']) ?>" style="width:100%;margin:10px 0;padding:8px;" required>
+        <input type="text" name="name" placeholder="Nom" value="<?= htmlspecialchars($user['name']) ?>" required>
+        <input type="email" name="email" placeholder="Email" value="<?= htmlspecialchars($user['email']) ?>" required>
+        <input type="tel" name="phone" placeholder="Téléphone" value="<?= htmlspecialchars($user['phone']) ?>" required>
         <button type="submit" class="btn btn-primary">Enregistrer</button>
       </form>
     </div>
@@ -139,10 +130,6 @@ $user = $_SESSION['user'];
 <?php include __DIR__ . '/../footer.php'; ?>
 
 <script>
-  function toggleTheme() {
-    document.body.classList.toggle('dark');
-  }
-
   function showTab(index) {
     document.querySelectorAll('.tab-btn').forEach((btn, i) => {
       btn.classList.toggle('active', i === index);

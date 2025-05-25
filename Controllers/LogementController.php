@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../Models/LogementModel.php';
-require_once __DIR__ . '/../Models/FavorisModel.php';
+require_once(__DIR__ . '/../Models/LogementModel.php');
+require_once(__DIR__ . '/../Models/FavorisModel.php');
 
 class LogementController {
     private $pdo;

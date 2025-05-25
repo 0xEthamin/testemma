@@ -1,8 +1,8 @@
 <?php
 // controllers/UserController.php
 
-require_once '../services/MailService.php';
-require_once '../models/User.php';
+require_once(__DIR__ . '/../mail.php');
+require_once(__DIR__ . '/../Models/User.php');
 
 class UserController {
 

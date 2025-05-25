@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../config.php'; // chemin vers ta connexion PDO
+require_once(__DIR__ . '/../config.php');
 
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {
     header("Location: login.php");

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../config.php'; // Connexion PDO
+require_once(__DIR__ . '/../config.php'); // Connexion PDO
 
 // Vérification que l'admin est connecté
 if (!isset($_SESSION['admin']) || $_SESSION['admin'] !== true) {

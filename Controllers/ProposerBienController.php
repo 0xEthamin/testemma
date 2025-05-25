@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../Models/Bien.php';
+require_once(__DIR__ . '/../Models/Bien.php');
 
 class ProposerBienController {
     private $pdo;
