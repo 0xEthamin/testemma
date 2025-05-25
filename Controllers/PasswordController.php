@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../models/User.php';
-require_once __DIR__ . '/../mail.php';
+require_once(__DIR__ . '/../models/User.php');
+require_once(__DIR__ . '/../mail.php');
 
 class PasswordController {
     private $pdo;

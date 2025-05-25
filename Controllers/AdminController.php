@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 // Chargement des fichiers nécessaires
-require_once __DIR__ . '../config.php';
-require_once __DIR__ . '/../Models/User.php';
-require_once __DIR__ . '/../Models/Message.php';
-require_once __DIR__ . '/../Models/UserModel.php';
-require_once __DIR__ . '/../Models/LogementModel.php';
+require_once(__DIR__ . '/../config.php');
+require_once(__DIR__ . '/../Models/User.php');
+require_once(__DIR__ . '/../Models/Message.php');
+require_once(__DIR__ . '/../Models/UserModel.php');
+require_once(__DIR__ . '/../Models/LogementModel.php');
 
 class AdminController {
     private $pdo;

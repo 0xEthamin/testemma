@@ -21,7 +21,7 @@ class ProfilController {  // Nom corrigé
             exit;
         }
 
-        include __DIR__ . '/../views/profil.php';
+        include(__DIR__ . '/../Views/profil.php');
     }
 
     public function updateProfile() {

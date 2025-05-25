@@ -14,7 +14,7 @@ class ProposerBienController {
     public function showForm() {
         $success = '';
         $error = '';
-        include '../Views/proposer_bien.php';
+        include(__DIR__ . '/../views/proposer_bien.php');
     }
 
     public function handleForm() {
